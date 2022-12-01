@@ -30,6 +30,11 @@ The stress rating of subjects after eachtrial.
 In this study, the data were collected by instructing subjects to solve tasks within a specified time to increase the stress levels. The EGG data were recorded using the Emotiv Epoc Flex gel kit at a sampling frequency of 128Hz. The Data were recorded from 32 channels, channels that were considered for EGG recording were Cz, Fz, FP1, F7, F3, FC1, C3, FC5, FT9, T7, CP5, CP1, P3, P7, PO9, O1, Pz, Oz, O2, PO10, P8, P4, CP2, CP6, T8, FT10, FC6, C4, FC2, F4, F8, and, FP2. 
 	
   The collected Data containing Artifacts caused by muscle movement and eye movement were removed using a combined model of Savitzky-Golay filter and wavelet thresholding. The SavitzkyGolay filter is created with a frame length of 127 and an order of 5. The SavitzkyGolay smoothing filter is used to generate a reference signal, which is subtracted from the EEG data to remove the average trend in the EEG data. After that, wavelet thresholding is used to eliminate the amplitudes which have higher values than thresholding in different scales. The signal is split into four levels, with the mother wavelet being ‘db2' (Daubechies 2). Thresholding is done using a threshold of 0.8 times the standard deviation of the detailed coefficient at the third level of decomposition. The thresholding process removes any leftover components that were not removed after the average trend was subtracted from the EEG.
+  
+> # Feature Extraction
+ 
+For short term, a total number of 12 features were selectedandcalculated using MATLAB R2021a. Average power is being calculated for different
+frequency bands and with Sampling frequency of 128 Hz for each channel. Thefrequency bands which were taken under consideration, Delta(0-4Hz), Theta(4-8Hz), Alpha(8-16Hz), Beta(16-32Hz) and Gamma(32-64Hz). The alpha Asymmetryiscalculated by log(absolute power of Fp2)-log(absolute power of Fp1)[52]. Sixmorefeatures were taken for classification which are Standard deviation, Peak to peak, Kurtosis, Hjorth parameters (Complexity and Mobility) and Renyi entropy.
 
 > # CLassification
 For Classification, the following 4 classifiers have been used:
