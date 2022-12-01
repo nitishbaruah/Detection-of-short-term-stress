@@ -1,4 +1,5 @@
 > # Methodology
+> ## Data Collection
 Our study involves 42 participants (Female: 16, Male: 26, Mean age:21.5 years), the age of the subjects ranges from 18 to 25. The experiment was conducted by performing various tasks such stroop color word test, identification of symmetric images, solving arithmetic questions, And a state of relaxation. 
 
 The individual task was performed for 25 sec and 3 trials for each task were carried. Continuous EEG data has been recorded throughout the experiment.
@@ -25,4 +26,25 @@ The stress rating of subjects after eachtrial.
 
 <img width="650" alt="h6" src="https://user-images.githubusercontent.com/40658745/204989816-26bf4283-870d-4aca-b544-d4fe3dcfe705.png">
 
+> # Data Preprocessing
+In this study, the data were collected by instructing subjects to solve tasks within a specified time to increase the stress levels. The EGG data were recorded using the Emotiv Epoc Flex gel kit at a sampling frequency of 128Hz. The Data were recorded from 32 channels, channels that were considered for EGG recording were Cz, Fz, FP1, F7, F3, FC1, C3, FC5, FT9, T7, CP5, CP1, P3, P7, PO9, O1, Pz, Oz, O2, PO10, P8, P4, CP2, CP6, T8, FT10, FC6, C4, FC2, F4, F8, and, FP2. 
+	
+  The collected Data containing Artifacts caused by muscle movement and eye movement were removed using a combined model of Savitzky-Golay filter and wavelet thresholding. The SavitzkyGolay filter is created with a frame length of 127 and an order of 5. The SavitzkyGolay smoothing filter is used to generate a reference signal, which is subtracted from the EEG data to remove the average trend in the EEG data. After that, wavelet thresholding is used to eliminate the amplitudes which have higher values than thresholding in different scales. The signal is split into four levels, with the mother wavelet being ‘db2' (Daubechies 2). Thresholding is done using a threshold of 0.8 times the standard deviation of the detailed coefficient at the third level of decomposition. The thresholding process removes any leftover components that were not removed after the average trend was subtracted from the EEG.
 
+> # CLassification
+For Classification, the following 4 classifiers have been used:
+a) Support vector machine(SVM): The statistical learning theory based onthenotion of structural risk minimization is used by a support vector machine. According to the labels provided, an SVM selects a hyper-plane that dividesthe feature space into control and stress groups. The SVMis a very effectiveclassifier that is utilized in a variety of applications. The usage of SVMdecreases the possibility of data over-fitting while also providing goodgeneralization results.
+
+b) Naive Bayes: The Bayes theorem is used to create a probabilistic classifier
+called Naive Bayes. It makes use of statistics' maximum posterior hypothesisand performs well with high-dimensional input data. It's a nonlinear classifier
+that performs well in real-world situations. Furthermore, the Naive Bayesclassifier necessitates a small amount of training data in order to estimatestatistical parameters. 
+
+c) K-nearest Neighbor (KNN): KNN is an instance-based learning classifier that
+saves training instances in their original state. To forecast the class, a distancefunction is used to determine which member of the training set is closest toa
+test example. If the attributes are numeric, determining the distance functionissimple. For distance calculation, most instance-based classifiers use Euclideandistance. The distance between an instance with attribute values a1, a2, ..., an(where n is the number of attributes) and b1, b2, ..., bn is defined as,
+
+<img width="167" alt="dd" src="https://user-images.githubusercontent.com/40658745/205036722-045cbf99-fdf7-4f7e-b629-06e0ffae762a.png">
+
+
+d) Decision Tree: In the shape of a tree structure, a decision tree constructsclassification or regression models. It incrementally cuts down a dataset intosmaller and smaller sections while also developing an associated decisiontree. A tree with decision nodes and leaf nodes is the end result. There are twoor
+more branches in a decision node. A classifier or conclusion is representedbyaleaf node. The root node is the topmost decision node in a tree that correspondsto the best predictor. Both category and numerical data can be handledbydecision trees.
